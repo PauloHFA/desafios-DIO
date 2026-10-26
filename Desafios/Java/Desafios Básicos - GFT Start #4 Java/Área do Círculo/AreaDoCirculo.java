@@ -1,36 +1,36 @@
+// √Årea do C√≠rculo
+
 /*
-A fÛrmula para calcular a ·rea de uma circunferÍncia È: area =  . raio2. 
-Considerando para este problema que  = 3.14159:
-- Efetue o c·lculo da ·rea, elevando o valor de raio ao quadrado e 
-multiplicando por .
+A f√≥rmula para calcular a √°rea de uma circunfer√™ncia √©: area = œÄ . raio2. 
+Considerando para este problema que œÄ = 3.14159:
+- Efetue o c√°lculo da √°rea, elevando o valor de raio ao quadrado e 
+multiplicando por œÄ.
 
 Entrada
-A entrada contÈm um valor de ponto flutuante (dupla precis„o), no caso, 
-a vari·vel raio.
+A entrada cont√©m um valor de ponto flutuante (dupla precis√£o), no caso, 
+a vari√°vel raio.
 
-SaÌda
-Apresentar a mensagem "A=" seguido pelo valor da vari·vel area, conforme exemplo
-abaixo, com 4 casas apÛs o ponto decimal. Utilize vari·veis de dupla precis„o
-(double). Como todos os problemas, n„o esqueÁa de imprimir o fim de linha apÛs 
-o resultado, caso contr·rio, vocÍ receber· "Presentation Error".
+Sa√≠da
+Apresentar a mensagem "A=" seguido pelo valor da vari√°vel area, conforme exemplo
+abaixo, com 4 casas ap√≥s o ponto decimal. Utilize vari√°veis de dupla precis√£o
+(double). Como todos os problemas, n√£o esque√ßa de imprimir o fim de linha ap√≥s 
+o resultado, caso contr√°rio, voc√™ receber√° "Presentation Error".
 */
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AreaDoCirculo {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner scan = new Scanner(System.in);
+        scan.useLocale(Locale.US);
 
-	public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
-
-		double area;
-		double raio;
-
-		raio = scan.nextDouble();
-		area = 3.14159 * (Math.pow(raio, 2));
-
-		System.out.printf("A=%.4f\n", area);
-		scan.close();
-	}
-
+        if (scan.hasNextDouble()) {
+            double raio = scan.nextDouble();
+            double area = 3.14159 * (raio * raio);
+            System.out.printf(Locale.US, "A=%.4f\n", area);
+        }
+        scan.close();
+    }
 }
