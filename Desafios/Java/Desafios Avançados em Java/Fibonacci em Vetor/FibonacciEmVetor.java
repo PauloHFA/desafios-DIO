@@ -23,21 +23,24 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FibonacciEmVetor {
-  public static void main(String[] args) throws IOException {
-    Scanner leitor = new Scanner(System.in);
-    int T = leitor.nextInt();
-    
-    for (int i = 0; i < T; ++i) {
-    	int N = leitor.nextInt();
-      long anterior = 0, atual = 1, auxiliar;
-      
-      for (int j = 0; j < N; ++j) {
-      	auxiliar = atual;
-      	atual = atual + anterior;
-      	anterior = auxiliar;
-      }
-      
-      System.out.println("Fib("+ N +") = " + anterior);
+    public static void main(String[] args) throws IOException {
+        Scanner leitor = new Scanner(System.in);
+        
+        long[] fib = new long[61];
+        fib[0] = 0;
+        fib[1] = 1;
+        for (int i = 2; i <= 60; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        
+        if (leitor.hasNextInt()) {
+            int T = leitor.nextInt();
+            for (int i = 0; i < T; ++i) {
+                int N = leitor.nextInt();
+                System.out.println("Fib(" + N + ") = " + fib[N]);
+            }
+        }
+        
+        leitor.close();
     }
-  }
 }
