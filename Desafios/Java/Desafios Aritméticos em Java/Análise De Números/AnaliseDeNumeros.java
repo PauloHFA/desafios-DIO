@@ -1,46 +1,54 @@
+// An√°lise De N√∫meros
+
 /*
-VocÍ deve fazer a leitura de 5 valores inteiros. Em seguida mostre quantos valores
-informados s„o pares, quantos valores informados s„o Ìmpares, quantos valores
-informados s„o positivos e quantos valores informados s„o negativos.
+Desafio:
+Voc√™ deve fazer a leitura de 5 valores inteiros. Em seguida mostre quantos valores
+informados s√£o pares, quantos valores informados s√£o √≠mpares, quantos valores
+informados s√£o positivos e quantos valores informados s√£o negativos.
 
-Entrada
-VocÍ receber· 5 valores inteiros.
+Entrada:
+Voc√™ receber√° 5 valores inteiros.
 
-SaÌda
-Exiba a mensagem conforme o exemplo de saÌda abaixo, sendo uma mensagem por linha
-e n„o esquecendo o final de linha apÛs cada uma.
+Sa√≠da:
+Exiba a mensagem conforme o exemplo de sa√≠da abaixo, sendo uma mensagem por linha:
+- X valor(es) par(es)
+- X valor(es) impar(es)
+- X valor(es) positivo(s)
+- X valor(es) negativo(s)
 */
 
 import java.util.Scanner;
 
 public class AnaliseDeNumeros {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) {
+        int pares = 0;
+        int impares = 0;
+        int positivos = 0;
+        int negativos = 0;
 
-		Scanner scan = new Scanner(System.in);
+        for (int i = 0; i < 5; i++) {
+            int n = scan.nextInt();
 
-		int n;
-		int par = 0;
-		int impar = 0;
-		int positivo = 0;
-		int negativo = 0;
+            if (n % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
 
-		for (int i = 0; i < 5; i++) {
-			n = scan.nextInt();
-			if (n % 2 == 0)
-				par += 1;
-			if (n % 2 != 0)
-				impar += 1;
-			if (n > 0)
-				positivo += 1;
-			if (n < 0)
-				negativo += 1;
-		}
+            if (n > 0) {
+                positivos++;
+            } else if (n < 0) {
+                negativos++;
+            }
+        }
 
-		System.out.println(par + " valor(es) par(es)");
-		System.out.println(impar + " valor(es) impar(es)");
-		System.out.println(positivo + " valor(es) positivo(s)");
-		System.out.println(negativo + " valor(es) negativo(s)");
-		scan.close();
-	}
+        System.out.println(pares + " valor(es) par(es)");
+        System.out.println(impares + " valor(es) impar(es)");
+        System.out.println(positivos + " valor(es) positivo(s)");
+        System.out.println(negativos + " valor(es) negativo(s)");
+        
+        scan.close();
+    }
 }
