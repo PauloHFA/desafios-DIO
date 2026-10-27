@@ -1,32 +1,36 @@
-package desafios;
+// Quantidade de Números Positivos
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+/*
+Crie um programa que leia 6 valores. Você poderá receber valores negativos
+e/ou positivos como entrada, devendo desconsiderar os valores nulos.
+Apresente a quantidade de valores positivos digitados.
+
+Entrada
+6 valores.
+
+Saída
+"X valores positivos".
+*/
+
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class QuantidadeNumerosPositivos {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int i = 0;
-        String line = null;
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
 
-        while( (line = br.readLine()) != null) {
-
-            if(line.equals(""))
-            {
-                break;
-            }
-
-            StringTokenizer tokens = new StringTokenizer(line);
-            while (tokens.hasMoreTokens()) {
-                var valor = Double.parseDouble(tokens.nextToken());
-                if (valor > 0) {
-                    i++;
+        int count = 0;
+        for (int i = 0; i < 6; i++) {
+            if (sc.hasNextDouble()) {
+                if (sc.nextDouble() > 0) {
+                    count++;
                 }
             }
         }
-
-        System.out.println(i + " valores positivos" );
+        System.out.println(count + " valores positivos");
+        sc.close();
     }
 }

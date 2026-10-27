@@ -3,27 +3,27 @@
 /*
 Ler um número inteiro N e calcular todos os seus divisores.
 
-- Entrada
+Entrada
+Um valor inteiro N.
 
-O arquivo de entrada contém um valor inteiro.
-
-- Saída
-
-Escreva todos os divisores positivos de N, um valor por linha.
+Saída
+Todos os divisores positivos de N, um por linha.
 */
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Divisores {
-  public static void main(String[] args) throws IOException {
-    Scanner leitor = new Scanner(System.in);
-    int N = leitor.nextInt();
-    
-    for (int i = 1; i <= N; i++) {
-    	if (N % i == 0)
-        System.out.println(i);
+    public static void main(String[] args) throws IOException {
+        Scanner leitor = new Scanner(System.in);
+        if (leitor.hasNextInt()) {
+            int n = leitor.nextInt();
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    System.out.println(i);
+                }
+            }
+        }
+        leitor.close();
     }
-    leitor.close();
-  }
 }
