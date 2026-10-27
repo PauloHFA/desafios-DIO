@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class VogaisExtraterrestres {
     public static void main(String[] args) {
@@ -9,13 +6,19 @@ public class VogaisExtraterrestres {
 
         while (sc.hasNextLine()) {
             String vogais = sc.nextLine();
+            if (!sc.hasNextLine()) break;
             String frase = sc.nextLine();
 
             int countVogais = 0;
-            for(char vogal : vogais.toCharArray()) {
-                countVogais += frase.chars().filter(c -> c == vogal).count();
+            for (char v : vogais.toCharArray()) {
+                for (char c : frase.toCharArray()) {
+                    if (c == v) {
+                        countVogais++;
+                    }
+                }
             }
             System.out.println(countVogais);
         }
+        sc.close();
     }
 }
