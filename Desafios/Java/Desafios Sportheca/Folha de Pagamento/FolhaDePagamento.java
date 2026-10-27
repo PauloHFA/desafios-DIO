@@ -1,42 +1,42 @@
+// Folha de Pagamento
+
 /*
 Precisamos saber quanto uma determinada empresa deve pagar para seus colaboradores,
-porém temos apenas a quantidade de horas trabalhadas e o valor hora. Escreva um 
-programa que leia o número de um colaborador, seu número de horas trabalhadas, 
-o valor que recebe por hora e calcula o salário desse colaborador. Em seguida, 
-apresente o número e o salário do colaborador, com duas casas decimais
+porÃ©m temos apenas a quantidade de horas trabalhadas e o valor hora. Escreva um 
+programa que leia o nÃºmero de um colaborador, seu nÃºmero de horas trabalhadas, 
+o valor que recebe por hora e calcula o salÃ¡rio desse colaborador. Em seguida, 
+apresente o nÃºmero e o salÃ¡rio do colaborador, com duas casas decimais.
 
 Entrada
-Você receverá 2 números inteiros e 1 número com duas casas decimais, representando 
-o número, quantidade de horas trabalhadas e o valor que o funcionário recebe por 
+VocÃª receberÃ¡ 2 nÃºmeros inteiros e 1 nÃºmero com duas casas decimais, representando 
+o nÃºmero, quantidade de horas trabalhadas e o valor que o funcionÃ¡rio recebe por 
 hora trabalhada.
 
-Saída
-Exiba o número e o salário do colaborador, conforme exemplo abaixo, com um espaço 
-em branco antes e depois da igualdade. No caso do salário, também deve haver um 
-espaço em branco após o $.
+SaÃ­da
+Exiba o nÃºmero e o salÃ¡rio do colaborador, conforme exemplo abaixo, com um espaÃ§o 
+em branco antes e depois da igualdade. No caso do salÃ¡rio, tambÃ©m deve haver um 
+espaÃ§o em branco apÃ³s o $.
 */
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class FolhaDePagamento {
+    public static void main(String[] args) throws IOException {
+        Locale.setDefault(Locale.US);
+        Scanner leitor = new Scanner(System.in);
+        leitor.useLocale(Locale.US);
 
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		int valor1 = Integer.parseInt(st.nextToken());
-		st = new StringTokenizer(br.readLine());
-		int valor2 = Integer.parseInt(st.nextToken());
-		st = new StringTokenizer(br.readLine());
-		double valor3 = Double.parseDouble(st.nextToken());
+        if (leitor.hasNextInt()) {
+            int numColaborador = leitor.nextInt();
+            int horasTrabalhadas = leitor.nextInt();
+            double valorHora = leitor.nextDouble();
 
-		double salario = valor2 * valor3;
-		System.out.println("NUMBER = " + valor1);
-		System.out.printf("SALARY = U$ %.2f", salario);
-	}
-
+            double salario = horasTrabalhadas * valorHora;
+            System.out.println("NUMBER = " + numColaborador);
+            System.out.printf(Locale.US, "SALARY = U$ %.2f\n", salario);
+        }
+        leitor.close();
+    }
 }

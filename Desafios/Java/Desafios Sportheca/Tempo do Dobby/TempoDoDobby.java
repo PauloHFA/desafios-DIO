@@ -1,0 +1,35 @@
+// Tempo do Dobby
+
+/*
+Desafio
+Para dar conta de toda a fabricação dos presentes de Natal, por várias vezes os elfos precisam ficar até tarde trabalhando para que tudo possa ser terminado a tempo.
+Faltam N minutos para a hora de ir embora, e restam dois presentes para o elfo Dobby fabricar. Ajude-o a descobrir se ele conseguirá fabricar os dois ainda hoje, ou se deve deixar o trabalho para amanhã.
+
+Entrada
+Cada caso de teste inicia com um inteiro N, indicando quantos minutos faltam para o final do expediente (2 <= N <= 100).
+Em seguida haverá dois inteiros A e B, indicando quantos minutos são necessários para fabricar os dois presentes (1 <= A, B <= 100).
+
+Saída
+Imprima uma linha contendo a frase "Farei hoje!" caso seja possível fabricar os dois presentes antes do final do expediente, ou "Deixa para amanha!" caso contrário.
+*/
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class TempoDoDobby {
+    public static void main(String[] args) throws IOException {
+        Scanner leitor = new Scanner(System.in);
+        if (leitor.hasNextInt()) {
+            int n = leitor.nextInt();
+            int a = leitor.nextInt();
+            int b = leitor.nextInt();
+
+            if (a + b <= n) {
+                System.out.println("Farei hoje!");
+            } else {
+                System.out.println("Deixa para amanha!");
+            }
+        }
+        leitor.close();
+    }
+}
