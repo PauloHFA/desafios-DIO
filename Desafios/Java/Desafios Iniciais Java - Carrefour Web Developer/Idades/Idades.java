@@ -8,10 +8,8 @@ A entrada contém um número indeterminado de inteiros. A entrada será encerrad
 
 Saída
 A saída contém um valor correspondente à média de idade dos indivíduos.
-
 A média deve ser impressa com dois dígitos após o ponto decimal.
 
- 
 Exemplo de Entrada	
 34
 56
@@ -23,26 +21,31 @@ Exemplo de Saída
 39.25
 */
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Idades {
-
     public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
         Scanner leitor = new Scanner(System.in);
         int cont = 0;
-        int n = 0;
+        int n;
         double soma = 0;
-         do {
+
+        while (leitor.hasNextInt()) {
             n = leitor.nextInt();
-            if (n > 0) {
-                soma = soma + n;
-                cont = cont+1;
+            if (n < 0) {
+                break;
             }
-        } while (n > 0);
-        double media = soma / cont;
-        System.out.println(String.format("%.2f", media));
+            soma += n;
+            cont++;
+        }
+
+        if (cont > 0) {
+            double media = soma / cont;
+            System.out.println(String.format(Locale.US, "%.2f", media));
+        }
 
         leitor.close();
     }
-
 }
