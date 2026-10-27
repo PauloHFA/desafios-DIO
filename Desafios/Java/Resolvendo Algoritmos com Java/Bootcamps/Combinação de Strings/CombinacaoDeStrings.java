@@ -1,66 +1,42 @@
-/**
- * Combinação de Strings
- *
- * Desafio:
- * - Crie um algoritmo que receba dois inputs que sejam strings e combine-as 
- * alternando as letras de cada string. 
- * 
- * - Deve começar pela primeira letra da primeira string, seguido pela primeira 
- * letra da segunda string, em seguida pela segunda letra da primeira string e 
- * continuar dessa forma sucessivamente.
- * 
- * - As letras restantes da cadeia mais longa devem ser adicionadas ao fim da 
- * string resultante e retornada.
- * 
- * Entrada:
- * - A entrada contém vários casos de teste. A primeira linha contém um inteiro 
- * N que indica a quantidade de casos de teste que vem a seguir. Cada caso de teste 
- * é composto por uma linha que contém duas cadeias de caracteres, cada cadeia de 
- * caracteres contém entre 1 e 50 caracteres inclusive.
- * 
- * Saída: 
- * - Combine as duas cadeias de caracteres da entrada como mostrado no exemplo abaixo 
- * e exiba a cadeia resultante.
- */
+// Combinação de Strings
 
-import java.util.Scanner;
+/*
+Crie um algoritmo que receba dois valores String e retorne uma nova String
+com os caracteres combinados alternadamente.
+
+Entrada
+A primeira linha contém N. Seguem N linhas com duas strings cada.
+
+Saída
+A cadeia combinada de cada caso.
+*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class CombinacaoDeStrings {
-    
-    public static void main(String[] args) {
-       
-        Scanner scan = new Scanner(System.in);
-        int casos = Integer.parseInt(scan.nextLine());         
-        
-        for(int i = 1; i <= casos; i++) {
-            
-            StringBuilder analise = new StringBuilder();
-            String[] palavras = scan.nextLine().split(" ");
-        
-            int maxSize = Math.max (     
-            palavras[0].length(),
-            palavras[1].length());
-            
-            for(int dados = 0; dados < maxSize; dados++) {
-                
-                if(dados < palavras[0].length()) {
-                    
-                    analise.append(palavras[0].charAt(dados));
-                
-                }
-                
-                if(dados < palavras[1].length()) {
-                   
-                    analise.append(palavras[1].charAt(dados));
-                
-                }
-            
-            }
-            
-            System.out.println(analise.toString());
-       
-        }
-    
-    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String linhaN = br.readLine();
+        if (linhaN != null && !linhaN.trim().isEmpty()) {
+            int n = Integer.parseInt(linhaN.trim());
+            for (int i = 0; i < n; i++) {
+                String line = br.readLine();
+                if (line == null) break;
+                String[] partes = line.trim().split("\\s+");
+                String s1 = partes[0];
+                String s2 = partes.length > 1 ? partes[1] : "";
 
+                StringBuilder sb = new StringBuilder();
+                int maxLen = Math.max(s1.length(), s2.length());
+
+                for (int j = 0; j < maxLen; j++) {
+                    if (j < s1.length()) sb.append(s1.charAt(j));
+                    if (j < s2.length()) sb.append(s2.charAt(j));
+                }
+                System.out.println(sb.toString());
+            }
+        }
+    }
 }
