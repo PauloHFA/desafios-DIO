@@ -6,32 +6,27 @@ Elabore um programa que possuas as características abaixo:
 1. Leia os dados de um CPF no formato XXX.YYY.ZZZ-DD;
 2. Imprima os quatro grupos numéricos, sendo um valor por linha.
 
-- Entrada
+Entrada
+A entrada consiste em um CPF no formato XXX.YYY.ZZZ-DD, onde XXX, YYY, ZZZ, DD são números inteiros.
 
-A entrada consiste vários arquivos de teste e cada um possuindo uma linha com
-formato XXX.YYY.ZZZ-DD, onde XXX, YYY, ZZZ, DD são números inteiros.
-
-- Saída
-
-Para cada arquivo da entrada, tem que ter um arquivo de saída com quatro linhas,
-e em cada linha um número inteiro de acordo com procedimento 2 descrito no
-Desafio. Confira o exemplo abaixo:
+Saída
+Para cada caso de teste da entrada, imprima os quatro grupos, cada um em uma linha.
 */
 
+import java.io.IOException;
 import java.util.Scanner;
-import java.util.Locale;
 
-public class Classe{
-	public static void main(String[] args) {
-		Locale.setDefault(new Locale("en", "US"));
-		Scanner sc = new Scanner(System.in);
-		String[] cpf = new String[4]; 
-		cpf = sc.nextLine().split("-");
-		
-		for(int i= 0; i < cpf.length; i++) {
-		  System.out.println(cpf[i].replace(".","\n"));
-	  }
-	  
-		sc.close();
-	}
+public class EntradaESaidaCPF {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNextLine()) {
+            String linha = sc.nextLine().trim();
+            if (linha.isEmpty()) continue;
+            String[] partes = linha.split("[.-]");
+            for (String parte : partes) {
+                System.out.println(parte);
+            }
+        }
+        sc.close();
+    }
 }
