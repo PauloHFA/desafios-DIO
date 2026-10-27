@@ -1,6 +1,7 @@
 // Exibindo Números Pares
 
-/* Crie um programa que leia um número e mostre os números pares até esse
+/*
+Crie um programa que leia um número e mostre os números pares até esse
 número, inclusive ele mesmo.
 
 - Entrada
@@ -18,12 +19,11 @@ import java.io.InputStreamReader;
 
 public class ExibindoNumerosPares {
     public static void main(String[] args) throws IOException {
-        String entrada;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        entrada = br.readLine();
-        
-        for (int i = 2; i <= Integer.parseInt(entrada); i++) {
-            if (i % 2 == 0) {
+        String entrada = br.readLine();
+        if (entrada != null && !entrada.trim().isEmpty()) {
+            int n = Integer.parseInt(entrada.trim());
+            for (int i = 2; i <= n; i += 2) {
                 System.out.println(i);
             }
         }
