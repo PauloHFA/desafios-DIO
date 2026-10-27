@@ -1,5 +1,3 @@
-//  https://web.digitalinnovation.one/coding/aceleracao-global-dev-15-gft/algorithm/esfera?back=/tracks
-
 // Esfera
 
 /*
@@ -12,37 +10,25 @@ O arquivo de entrada contém um valor de ponto flutuante (dupla precisão), corr
 
 Saída
 A saída deverá ser uma mensagem "VOLUME" conforme o exemplo fornecido abaixo, com um espaço antes e um espaço depois da igualdade. O valor deverá ser apresentado com 3 casas após o ponto.
-
- 
-Exemplos de Entrada	Exemplos de Saída
-3
-
-VOLUME = 113.097
-
-15
-
-VOLUME = 14137.155
-
-1523
-
-VOLUME = 14797486501.627
 */
 
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.Locale;
+import java.util.Scanner;
 
-public class Problem {
-	
+public class Esfera {
     public static void main(String[] args) throws IOException {
-  		Locale.setDefault(Locale.US);
-  		Scanner sc = new Scanner(System.in);
-  
-  		double pi = 3.14159;
-  		double R = sc.nextDouble();
-  		double volume = (4.0/3.0)*pi*(Math.pow(R, 3.0));
-  		System.out.printf("VOLUME = %.3f%n", volume);
-  		sc.close();
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.US);
+
+        if (sc.hasNextDouble()) {
+            double pi = 3.14159;
+            double R = sc.nextDouble();
+            double volume = (4.0 / 3.0) * pi * Math.pow(R, 3.0);
+            System.out.printf(Locale.US, "VOLUME = %.3f\n", volume);
+        }
+
+        sc.close();
     }
-	
 }
